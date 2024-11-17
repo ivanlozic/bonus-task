@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify-style Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor"></div>
+  <header class="header">
+    <div class="header__logo">MyStore</div>
+    <div class="header__cart">
+      <button id="cart-toggle" class="header__cart-button">
+        🛒 <span id="cart-count" class="header__cart-count">0</span> Items
+      </button>
+    </div>
+  </header>
+
+  <section class="filters">
+    <input type="text" id="search" placeholder="Search Products" class="filters__search"/>
+    <select id="category-filter" class="filters__select">
+      <option value="all">All Categories</option>
+      <option value="kitchen">Kitchen</option>
+      <option value="furniture">Furniture</option>
+    </select>
+    <select id="sort-options" class="filters__select">
+      <option value="none">Sort By</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+    </select>
+  </section>
+
+  <section id="product-container" class="product-container"></section>
+
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart">
+      <h2 class="cart__title">Your Cart</h2>
+      <ul id="cart-items" class="cart__items"></ul>
+      <p id="total-price" class="cart__total">Total: $0</p>
+      <label for="discount-code" class="cart__discount-label">Enter Discount Code: </label>
+      <input type="text" id="discount-code" placeholder="Enter code" class="cart__discount-input"/>
+      <button id="apply-discount" class="btn btn--primary">Apply Discount</button>
+      <p id="discount-message" class="cart__discount-message"></p>
+      <p id="discount-info" class="cart__discount-info">Use the code <strong>coi_discount</strong> to get 15% off your order!</p>
+      <button class="btn btn--primary cart__checkout">Checkout</button>
+      <button class="btn btn--danger cart__delete-all" id="delete-all">Delete All</button>
+      <button class="cart__close" id="close-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 6.293l2.646-2.647a.5.5 0 1 1 .708.708L8.707 7l2.647 2.646a.5.5 0 0 1-.708.708L8 7.707l-2.646 2.647a.5.5 0 1 1-.708-.708L7.293 7 4.646 4.646a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="checkout-modal" class="modal">
+    <div class="modal__content">
+      <p id="order-number-message"></p>
+      <button id="close-modal" class="btn btn--secondary">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
